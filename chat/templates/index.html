@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form id="chat-form">
+        {% csrf_token %}
+        <label for="question">Haz tu pregunta:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Respuesta:</h2>
+    <p id="response"></p>
+
+    <script>
+        const form = document.getElementById('chat-form');
+        const responseField = document.getElementById('response');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+
+            // Lógica para enviar la pregunta al backend e imprimir la respuesta
+            fetch('/api/get_response/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseField.textContent = data.response;
+                form.reset();  // Borra el input después de la respuesta
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

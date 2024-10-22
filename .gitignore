@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+*.sqlite3
+
+# Ignorar el archivo de variables de entorno
+.env
+
+# If you are using SQLite
+*.db
+
+# Logs
+logs/
+*.log
+
+# Virtual environment
+.venv/
+
+# Static files
+staticfiles/
+static/
+
+# Local environment variables
+.env
+
+# IDE/Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
