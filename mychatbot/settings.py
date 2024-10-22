@@ -75,6 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mychatbot.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = ['https://web-production-9425a.up.railway.app']
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
