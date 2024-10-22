@@ -6,6 +6,7 @@ from openai import OpenAI
 from twilio.twiml.messaging_response import MessagingResponse
 import os
 from dotenv import load_dotenv
+from django.views.decorators.csrf import csrf_exempt
 
 
 load_dotenv()
