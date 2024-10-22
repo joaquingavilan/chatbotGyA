@@ -42,6 +42,7 @@ def get_response(request):
 
 
 # Vista para recibir mensajes desde Twilio y devolver un mensaje de éxito
+@csrf_exempt
 def receive_whatsapp(request):
     if request.method == 'POST':
         # Obtener el mensaje entrante desde Twilio (por ahora no lo usaremos)
