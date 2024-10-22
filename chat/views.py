@@ -85,7 +85,7 @@ def receive_whatsapp(request):
 
 def openai_chat_completion(conversation):
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="ft:gpt-3.5-turbo-1106:personal:gya-chat:AJnlAkJW",
             messages=conversation,
             max_tokens=200
